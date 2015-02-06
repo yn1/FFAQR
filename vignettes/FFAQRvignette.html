@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="author" content="Gomez and Nemenov" />
+
+<meta name="date" content="2015-02-06" />
+
+<title>FFAQR Vignette</title>
+
+
+
+
+<link href="data:text/css,body%20%7B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20max%2Dwidth%3A%20700px%3B%0A%20%20overflow%3A%20visible%3B%0A%20%20padding%2Dleft%3A%202em%3B%0A%20%20padding%2Dright%3A%202em%3B%0A%20%20font%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E35%3B%0A%7D%0A%0A%23header%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0A%0A%23TOC%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%200%200%2010px%2010px%3B%0A%20%20padding%3A%204px%3B%0A%20%20width%3A%20400px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20border%2Dradius%3A%205px%3B%0A%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%201%2E3%3B%0A%7D%0A%20%20%23TOC%20%2Etoctitle%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%20%20font%2Dsize%3A%2015px%3B%0A%20%20%20%20margin%2Dleft%3A%205px%3B%0A%20%20%7D%0A%0A%20%20%23TOC%20ul%20%7B%0A%20%20%20%20padding%2Dleft%3A%2040px%3B%0A%20%20%20%20margin%2Dleft%3A%20%2D1%2E5em%3B%0A%20%20%20%20margin%2Dtop%3A%205px%3B%0A%20%20%20%20margin%2Dbottom%3A%205px%3B%0A%20%20%7D%0A%20%20%23TOC%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dleft%3A%20%2D2em%3B%0A%20%20%7D%0A%20%20%23TOC%20li%20%7B%0A%20%20%20%20line%2Dheight%3A%2016px%3B%0A%20%20%7D%0A%0Atable%20%7B%0A%20%20margin%3A%201em%20auto%3B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20border%2Dstyle%3A%20outset%3B%0A%20%20border%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0A%20%20border%2Dwidth%3A%202px%3B%0A%20%20padding%3A%205px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0A%20%20border%2Dwidth%3A%201px%3B%0A%20%20border%2Dstyle%3A%20inset%3B%0A%20%20line%2Dheight%3A%2018px%3B%0A%20%20padding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0A%20%20border%2Dleft%2Dstyle%3A%20none%3B%0A%20%20border%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Ap%20%7B%0A%20%20margin%3A%200%2E5em%200%3B%0A%7D%0A%0Ablockquote%20%7B%0A%20%20background%2Dcolor%3A%20%23f6f6f6%3B%0A%20%20padding%3A%200%2E25em%200%2E75em%3B%0A%7D%0A%0Ahr%20%7B%0A%20%20border%2Dstyle%3A%20solid%3B%0A%20%20border%3A%20none%3B%0A%20%20border%2Dtop%3A%201px%20solid%20%23777%3B%0A%20%20margin%3A%2028px%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20margin%2Dleft%3A%200%3B%0A%7D%0A%20%20dl%20dd%20%7B%0A%20%20%20%20margin%2Dbottom%3A%2013px%3B%0A%20%20%20%20margin%2Dleft%3A%2013px%3B%0A%20%20%7D%0A%20%20dl%20dt%20%7B%0A%20%20%20%20font%2Dweight%3A%20bold%3B%0A%20%20%7D%0A%0Aul%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%7D%0A%20%20ul%20li%20%7B%0A%20%20%20%20list%2Dstyle%3A%20circle%20outside%3B%0A%20%20%7D%0A%20%20ul%20ul%20%7B%0A%20%20%20%20margin%2Dbottom%3A%200%3B%0A%20%20%7D%0A%0Apre%2C%20code%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20color%3A%20%23333%3B%0A%7D%0Apre%20%7B%0A%20%20white%2Dspace%3A%20pre%2Dwrap%3B%20%20%20%20%2F%2A%20Wrap%20long%20lines%20%2A%2F%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20margin%3A%205px%200px%2010px%200px%3B%0A%20%20padding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0A%0Acode%20%7B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0A%20%20font%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0A%20%20padding%3A%202px%200px%3B%0A%7D%0A%0Adiv%2Efigure%20%7B%0A%20%20text%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0A%20%20background%2Dcolor%3A%20%23FFFFFF%3B%0A%20%20padding%3A%202px%3B%0A%20%20border%3A%201px%20solid%20%23DDDDDD%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%20%20border%3A%201px%20solid%20%23CCCCCC%3B%0A%20%20margin%3A%200%205px%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20font%2Dsize%3A%2035px%3B%0A%20%20line%2Dheight%3A%2040px%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20padding%2Dbottom%3A%202px%3B%0A%20%20font%2Dsize%3A%20145%25%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20border%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0A%20%20padding%2Dtop%3A%2010px%3B%0A%20%20font%2Dsize%3A%20120%25%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0A%20%20margin%2Dleft%3A%208px%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Ah5%2C%20h6%20%7B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%20105%25%3B%0A%7D%0A%0Aa%20%7B%0A%20%20color%3A%20%230033dd%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%20%20a%3Ahover%20%7B%0A%20%20%20%20color%3A%20%236666ff%3B%20%7D%0A%20%20a%3Avisited%20%7B%0A%20%20%20%20color%3A%20%23800080%3B%20%7D%0A%20%20a%3Avisited%3Ahover%20%7B%0A%20%20%20%20color%3A%20%23BB00BB%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%20%20a%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0A%20%20%20%20text%2Ddecoration%3A%20underline%3B%20%7D%0A%0A%2F%2A%20Class%20described%20in%20https%3A%2F%2Fbenjeffrey%2Ecom%2Fposts%2Fpandoc%2Dsyntax%2Dhighlighting%2Dcss%0A%20%20%20Colours%20from%20https%3A%2F%2Fgist%2Egithub%2Ecom%2Frobsimmons%2F1172277%20%2A%2F%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Keyword%20%2A%2F%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%2F%2A%20DataType%20%2A%2F%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%2F%2A%20DecVal%20%28decimal%20values%29%20%2A%2F%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20BaseN%20%2A%2F%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Float%20%2A%2F%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20Char%20%2A%2F%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%2F%2A%20String%20%2A%2F%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%2F%2A%20Comment%20%2A%2F%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%2F%2A%20OtherToken%20%2A%2F%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20AlertToken%20%2A%2F%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%2F%2A%20Function%20calls%20%2A%2F%20%0Acode%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%2F%2A%20ErrorTok%20%2A%2F%0A%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+<div id="header">
+<h1 class="title">FFAQR Vignette</h1>
+<h4 class="author"><em>Gomez and Nemenov</em></h4>
+<h4 class="date"><em>2015-02-06</em></h4>
+</div>
+
+
+<p>This is a package that merges AQR’s Quality Minus Junk data set with Fama and French’s (FF) portfolio data based on five factors: market returns (less the risk free rate), small minus big, high (book to market) minus low, investment, and operating profitability. The purpose of this package is to clean the data and recommend to the user interesting follow up questions and opportunities for further research.</p>
+<p>This package was developed to facilitate further use of the AQR and FF data sets for Econ 20: Quantitative Data Analysis during winter study at Williams College. We would like to thank David Kane and our classmates for their help and guidance.</p>
+<div id="downloading" class="section level2">
+<h2>Downloading</h2>
+<p>Use the following commands in an R terminal to install the package:</p>
+<p>library(devtools)</p>
+<p>install_github(“yn1/FFAQR”)</p>
+<p>library(“FFAQR”)</p>
+<p>?FFAQR</p>
+</div>
+<div id="package-101" class="section level2">
+<h2>Package 101</h2>
+<p>Call updateData() to update all data if up-to-date data is required. Data sets preloaded with package are recent as of 2/6/15. Call updateData(“AQR”) or updateData(“FF”) to update only respective data sets.</p>
+<p>Call fetchDf(name) to return updated data (assign to variable with assignment operator).</p>
+<p>Example usage:</p>
+<p>updateData(“AQR”) df &lt;- fetchDf(“AQRRF”) View(df)</p>
+</div>
+<div id="fetch-options" class="section level2">
+<h2>Fetch Options</h2>
+<p>The following is a list of possible arguments for fetchDf(name). To be safe, input arguments as strings. See below for glossary of acronyms. All daily AQR data omitted from suggestions, Java heap runs out of memory when reading file.</p>
+<p>AQRRF - Risk free rate.</p>
+<p>AQRHMLMonthly - Monthly returns for HML factor.</p>
+<p>AQRMKTMonthly - Monthly market returns.</p>
+<p>AQRSMBMonthly - Monthly returns of SMB factor.</p>
+<p>AQRTSMMonthly - Monthly time series momentum returns.</p>
+<p>AQRUMDMonthly - Monthly returns of UMD factor.</p>
+<p>AQRBABFactorsMonthly - Monthly returns for BAB factor.</p>
+<p>AQRBABPortfoliosMonthly - Monthly returns for various BAB portfolios.</p>
+<p>AQRQMJ10QualityBroadGlobal - Monthly returns of 10 global portfolios constructed on quality.</p>
+<p>AQRQMJ10QualityLongUS - Monthly returns of 10 long US portfolios constructed on quality.</p>
+<p>AQRQMJFactorsMonthly - Monthly returns of QMJ factor.</p>
+<p>For the FF data, the name must end with “3”, “5”, or “10”, corresponding to terciles, quintiles, and deciles. That is, if the name is “Equities”, you can input “Equities5”.</p>
+<p>FFCMAAvgFirmSize - Average firm size used for CMA data.</p>
+<p>FFCMAEqWgtAnn - Equal-weighted annual returns to CMA.</p>
+<p>FFCMAEqWgtMthly - Equal-weighted monthly returns to CMA.</p>
+<p>FFCMANumOfFirms - Number of firms used for CMA data.</p>
+<p>FFCMAValWgtAnn - Value-weighted annual returns to CMA.</p>
+<p>FFCMAValWgtAvgInvAnn - Value-weighted average investment for CMA data.</p>
+<p>FFCMAValWgtMthly - Geometric value-weighted average investment.</p>
+<p>FFHMLAvgFirmSize - Average firm size used for HML data.</p>
+<p>FFHMLEqWgtAnn - Equal-weighted annual returns to HML.</p>
+<p>FFHMLEqWgtDly - Equal-weighted daily returns to HML.</p>
+<p>FFHMLEqWgtMthly - Equal-weighted monthly returns to HML.</p>
+<p>FFHMLNumOfFirms - Number of firms used in HML data.</p>
+<p>FFHMLValWgtAnn - Value-weighted annual returns to HML.</p>
+<p>FFHMLValWgtDly - Value-weighted daily returns to HML.</p>
+<p>FFHMLValWgtMthly - Value-weighted monthly returns to HML.</p>
+<p>FFRMWAvgFirmSize - Average firm size used for RMW data.</p>
+<p>FFRMWEqWgtAnn - Equal-weighted annual returns to RMW.</p>
+<p>FFRMWEqWgtMthly - Equal-weighted monthly returns to RMW.</p>
+<p>FFRMWNumOfFirms - Number of firms used for RMW data.</p>
+<p>FFRMWValWgtAnn - Value-weighted annual returns to RMW.</p>
+<p>FFRMWValWgtAvgOP - Value-weighted average operating profitability.</p>
+<p>FFRMWValWgtMthly - Value-weighted monthly returns to RMW.</p>
+<p>FFSMBAvgFirmSize - Average firm size used for SMB data.</p>
+<p>FFSMBEqWgtAnn - Equal-weighted annual returns to SMB.</p>
+<p>FFSMBEqWgtDly - Equal-weighted daily returns to SMB.</p>
+<p>FFSMBEqWgtMthly - Equal-weighted monthly returns to SMB.</p>
+<p>FFSMBNumOfFirms - Number of firms used in SMB data.</p>
+<p>FFSMBValWgtAnn - Value-weighted annual returns to SMB.</p>
+<p>FFSMBValWgtDly - Value-weighted daily returns to SMB.</p>
+<p>FFSMBValWgtMthly - Value-weighted monthly returns to SMB.</p>
+</div>
+<div id="glossary" class="section level2">
+<h2>Glossary</h2>
+<p>FF - Fama French</p>
+<p>AQR - AQR</p>
+<p>BAB - Betting Against Beta</p>
+<p>HML - High (Book to Market) Minus Low</p>
+<p>QMJ - Quality Minus Junk</p>
+<p>SMB - Small Minus Big</p>
+<p>TSM - Time Series Momentum</p>
+<p>UMD - Up Minus Down</p>
+<p>CMA - Investment</p>
+<p>RMW - Operating Profitability</p>
+<p>For further information, please visit the original database websites:</p>
+<p>Fama-French:<a href="http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html">http://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html</a></p>
+<p>AQR: <a href="https://www.aqr.com/library/data-sets?page=1">https://www.aqr.com/library/data-sets?page=1</a></p>
+</div>
+<div id="data-sources" class="section level2">
+<h2>Data Sources</h2>
+<p>FFCMA - Portfolios sorted by investment, monthly.</p>
+<p>FFHMLDaily - Portfolios sorted by book to market value, daily.</p>
+<p>FFHMLMonthly - Portfolios sorted by book to market value, monthly, includes number of firms and average size of firms included in portfolios.</p>
+<p>FFRMW - Portfolios sorted by operating profitability, monthly.</p>
+<p>FFSMBDaily - Portfolios sorted by size, daily.</p>
+<p>FFSMBMonthly - Portfolios sorted by size, monthly, includes number of firms and average size of firms included in portfolios.</p>
+<p>AQRBABDaily - AQR’s daily returns on the betting against beta factor.</p>
+<p>AQRBABMonthly - AQR’s monthly returns on the betting against beta factor.</p>
+<p>AQRQMJ10QMonthly - 10 portfolios of US and Global equities (each) sorted by AQR’s measure of quality minus junk, monthly.</p>
+<p>AQRQMJDaily - AQR’s daily returns on the quality minus junk factor.</p>
+<p>AQRQMJMonthly - AQR’s monthly returns on the quality minus junk factor, includes AQR’s returns on portfolios selected through several additional criteria discussed below. For the sake of not downloading the same data multiple times, much of the overlapping AQR data was taken from this data set.</p>
+<p>AQRTSMMonthly - AQR’s monthly returns to time series momentum.</p>
+</div>
+<div id="detailed-explanation-of-data" class="section level2">
+<h2>Detailed Explanation of Data</h2>
+<p>Note: The following FF datasets are split into separate subsets that group observations by terciles, quintiles and deciles.</p>
+<p>FFCMA</p>
+<p>Datasets beginning with FFCMA contain portfolios constructed with respect to investment, which is defined as the change in total assets from the fiscal year ending in year t-2 to the fiscal year ending in t-1, divided by t-1 total assets. It contains value and equal weighted returns for portfolios formed on investment.</p>
+<p>FFHML</p>
+<p>Datasets beginning with FFHML contain portfolios constructed with respect to ratio of book equity to market equity (BE/ME), which is defined as book equity at the last fiscal year end of the prior calendar year divided by ME at the end of December of the prior year. It contains value and equal weighted returns for portfolios formed on BE/ME. Those datasets that continue as FFHMLDaily contain portfolios that are constructed with daily information, while those that continue as FFHMLMonthly contain portfolios that are constructed with monthly information. Data describing the number of firms and the average size of firms is included for FFHMLMonthly.</p>
+<p>FFRMW</p>
+<p>Datasets beginning with FFRMW are constructed with respect to operating profitability, which is defined as operating profits ( sales minus cost of goods sold, minus selling, general, and administrative expenses, minus interests expense) divided by book equity at the last fiscal year end of the prior calendar year. Among these datasets included are those that contain value and equal weighted returns for portfolios.</p>
+<p>FFSMB</p>
+<p>Datasets beginning with FFSMB are constructed with respect to the size. SMB or small minus big accounts for the spread between small and large sized firms, which is based on the company’s market capitalization. Among the datasets include are those that contain value and equal weighted returns for portfolios. Additionally, returns by this metric are available as monthly or daily data. Data describing the number of firms and the average size of firms is included for FFSMBMonthly.</p>
+<p>The following AQR datasets provide AQR’s data for returns on several FF factors (including size and book to market), momentum, and the relevant risk free rate.</p>
+<p>AQRBABMonthly</p>
+<p>Dataset contains monthly excess returns of low-beta stocks over high-beta stocks, as defined my market returns in a universe of both domestic and global equities.</p>
+<p>AQRQMJ10QMonthly</p>
+<p>Dataset contains monthly returns, in excess of t-bills, of 10 value-weighed, long-only portfolios sorted on quality. A quality security is defined as one that, all else equal, investors are willing to pay a higher price for: stocks that are safe, well-managed, profitable and growing. It includes 10 quality sorted portfolios, for both a long sample of U.S equities and a broad sample of global equities. It also includes the spread between highest quality portfolio and the lowest quality portfolio.</p>
+<p>AQRQMJMonthly</p>
+<p>Dataset contains monthly self-financing excess returns of long/short Quality Minus Junk (QMJ) factors. QMJ is our quality-minus-junk factor that goes long high quality stocks and short low quality stocks. A quality security is defined as one that, all else equal, investors are willing to pay a higher price for: stocks that are safe, well-managed, profitable and growing. QMJ factors are constructed for U.S equities, 23 international equity markets, and multiple aggregates.</p>
+<p>AQRTSMMonthly</p>
+<p>Data set contains information on time series momentum with regards to equities, currencies, bonds, and commodities. Returns are based on a 12-month time series momentum strategy with a 1-month holding period.</p>
+</div>
+<div id="troubleshooting-common-errors" class="section level2">
+<h2>Troubleshooting Common Errors</h2>
+<p>Unable to set working directory? Some functions make use of moving into subdirectories before moving back out into the working directory, please make sure that the project folder is set as the folder directory before attempting to clean or download data.</p>
+<p>Unable to import AQR data? If you cannot run read.xlsx() on the daily AQR data, you need to allocate more memory to your Java heap (see Java’s Xmx setting).</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
